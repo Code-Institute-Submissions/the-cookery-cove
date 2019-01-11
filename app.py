@@ -26,6 +26,7 @@ def index():
         categories=mongo.db.categories.find(),
         difficulties=mongo.db.difficulties.find(),
         main_ingredients=mongo.db.main_ingredients.find(),
+        allergens=mongo.db.allergens.find(),
         message='Welcome, ' + str(session['username']) + ', to The Cookery Cove!')
     return render_template("index.html", 
     message='Welcome to The Cookery Cove!',
@@ -33,6 +34,7 @@ def index():
     categories=mongo.db.categories.find(),
     difficulties=mongo.db.difficulties.find(),
     main_ingredients=mongo.db.main_ingredients.find(),
+    allergens=mongo.db.allergens.find(),
     cuisines=mongo.db.cuisines.find())
     
 @app.route('/signin', methods=['GET', 'POST'])
@@ -202,6 +204,61 @@ def recipes_by_main(main_ingredient):
         main_ingredients=mongo.db.main_ingredients.find(),
         main_ingredient=main_ingredient,
         recipes_total=recipes_total)
+        
+@app.route('/<username>/add_recipe', methods=['GET','POST'])
+def add_recipe(username):
+    """
+    If user is signed in, allow user to create and insert
+    new recipe into the database
+    """
+    if 'username' in session:
+
+        username = session['username']
+
+        if request.method == 'POST':
+            recipe = mongo.db.recipes
+            recipe.insert({
+                'recipe_name' : request.form['recipe_name'],
+                'recipe_description' : request.form['recipe_description'],
+                'cuisine_name' : request.form.get('cuisine_name'),
+                'recipe_ingredients' :  request.form.get('recipe_ingredients'),
+                'recipe_method' : request.form.get('recipe_method'),
+                'prep_time': request.form.get('prep_time'),
+                'cook_time': request.form.get('cook_time'),
+                'image_url': request.form.get('image_url'),
+                'serves': request.form.get('serves'),
+                'recipe_allergens': request.form.get('recipe_allergens'),
+                'author' : session['username'],
+                'difficulty_name': request.form.get('difficulty_name'),
+                'category_name': request.form.getlist('category_name'),
+                'main_ingredient': request.form.get('main_ingredient'),
+                'allergen_name': request.form.getlist('allergen_name')
+            })
+            
+            # Check for existing ingredient to avoid 
+            # re-entering the same ingredient into database
+            # Adds new main ingredient into database if does not exist
+            main_ingredient = mongo.db.main_ingredients
+            existing_ingredient = main_ingredient.find_one({
+                'main_ingredient' : request.form['main_ingredient']
+            })
+            
+            if request.form['main_ingredient']:
+                
+                if existing_ingredient is None:
+                    main_ingredient.insert({
+                    'main_ingredient': request.form.get('main_ingredient')
+                    })
+                return redirect(url_for('home'))
+        return render_template('addrecipe.html', 
+                                cuisines=mongo.db.cuisines.find(),
+                                difficulties=mongo.db.difficulties.find(),
+                                categories=mongo.db.categories.find(),
+                                main_ingredients=mongo.db.main_ingredients.find(),
+                                allergens=mongo.db.allergens.find(),
+                                username=session['username'])
+                                
+    return render_template('signin.html')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
