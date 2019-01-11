@@ -1,8 +1,5 @@
 # The Cookery Cove
 
-GitHub Pages:
-https://kimpea.github.io/the-cookery-cove/
-
 ## UX
 
 This web application is made for users who would like to store and easily access cooking recipes of different cuisines, categories, ingredients and difficulties. 
