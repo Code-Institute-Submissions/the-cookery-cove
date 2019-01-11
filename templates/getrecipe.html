@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row center-align card">
+    <div class="col s12 m6 l6 ">
+        <div class="card-content info-card">
+            <div class="row">
+                <span class="getrecipe-heading"><strong>{{ recipe.recipe_name }}</strong></span><br>
+                <strong>Created by: {{ recipe.author }}</strong>
+                <div class="card-content">
+                    <p>{{ recipe.recipe_description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="recipe-info">
+                    <span><strong>Category: </strong>{% for category_name in recipe.category_name %}
+                                    {% if category_name != "" %}
+                                    <span>{{ category_name }},</span>
+                                    {% else %}
+                                    <span>None</span>
+                                    {% endif %}
+                                {% endfor %}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Difficulty: </strong>{{ recipe.difficulty_name }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Preparation Time: </strong>{{ recipe.prep_time }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Serves: </strong>{{ recipe.serves }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Allergens: </strong>{% for allergen_name in recipe.allergen_name %}
+                                    {% if allergen_name != "" %}
+                                    <span>{{ allergen_name }},</span>
+                                    {% else %}
+                                    <span>None</span>
+                                    {% endif %}
+                                {% endfor %}</span>
+                </div>
+                <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col s12 m6 l6">
+        <div class="card-content row">
+            <img src="{{ recipe.image_url }}" class="getrecipe-image circle responsive-img">
+        </div>
+    </div>
+</div>
+
+<div class="row card">
+    <div class="col s12 m6 l6">
+        <div class="card-content center-align">   
+            <span class="getrecipe-heading"><strong>Ingredients</strong></span>
+            <ul>
+                {% for ingredient in ingredient_split %}
+                <li>
+                    <span>{{ ingredient }}</span>
+                </li>
+                {% endfor %}
+            </ul>  
+        </div>
+    </div>
+    
+    <div class="col s12 m6 l6">
+        <div class="card-content">
+            <span class="getrecipe-heading"><strong>Method</strong></span>    
+            <ul>
+                {% for method in method_split %}
+                    <li>
+                        <span>{{ method }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
