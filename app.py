@@ -260,6 +260,25 @@ def add_recipe(username):
                                 
     return render_template('signin.html')
 
+
+@app.route('/my_recipes/<username>')
+def my_recipes(username):
+    """
+    Display all recipes created by user in session
+    """
+    if 'username' in session:
+        user = mongo.db.users.find_one({"username": username})
+        user_recipes = mongo.db.recipes.find({"author": session['username']})
+        recipes_total = user_recipes.count()
+        return render_template("myrecipes.html",
+                                recipes_total=recipes_total,
+                                user=user,
+                                user_recipes=user_recipes,
+                                message="Your Recipes",)
+    else:
+        return redirect(url_for('index',
+                                message="You do not have any recipes!"))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
