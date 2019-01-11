@@ -11,8 +11,8 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-@app.route('/home')
-def home():
+@app.route('/index')
+def index():
     """
     Return index.html which is the first page the user will see
     """
@@ -35,7 +35,7 @@ def signin():
         if user_signin:
             if request.form['password'] == user_signin['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for('home'))
+                return redirect(url_for('index'))
         return render_template('signin.html', message='Invalid username or password')
     return render_template('signin.html', message='')
     
@@ -69,7 +69,7 @@ def register():
                 password = request.form['password']
                 users.insert({'username': request.form['username'], 'password': password})
                 session['username'] = request.form['username']
-                return redirect(url_for('home'))
+                return redirect(url_for('index'))
             return render_template('register.html',
                                    message='Username ' + str(existing_user['username']) + ' already exists')
 
