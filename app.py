@@ -5,6 +5,7 @@ import math
 import os
 
 app = Flask(__name__)
+app.secret_key = 'some_secret'
 
 app.config["MONGO_DBNAME"] = 'online_cookbook'
 app.config["MONGO_URI"] = 'mongodb://admin:cook1book2@ds129914.mlab.com:29914/online_cookbook'
