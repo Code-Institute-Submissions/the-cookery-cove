@@ -18,6 +18,27 @@ def home():
     """
     return render_template("home.html")
     
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    """
+    Direct user to signin page where they can enter their username
+    and password and manage their recipes
+    """
+    if 'username' in session:
+        return render_template('home.html',
+                                message="You are already signed in!")
+    
+    if request.method == 'POST':
+        users = mongo.db.users
+        user_signin = users.find_one({'username': request.form['username']})
+
+        if user_signin:
+            if request.form['password'] == user_signin['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('home'))
+        return render_template('signin.html', message='Invalid username or password')
+    return render_template('signin.html', message='')
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
