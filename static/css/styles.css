@@ -85,6 +85,10 @@ nav i {
   z-index: 1 !important;
 }
 
+.nav-links i {
+    height: 10px;
+}
+
 /*-- Forms & Buttons --*/
 
 .cookery-buttons a, .cookery-buttons button {
