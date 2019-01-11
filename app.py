@@ -161,6 +161,24 @@ def recipes_by_difficulty(difficulty_name):
         difficulty_name=difficulty_name,
         recipes_total=recipes_total)
 
+@app.route('/recipes_by_category/<category_name>')
+def recipes_by_category(category_name):
+    """
+    Get all recipes of a chosen category and display
+    these recipes on one page
+    """
+    
+    # Counts total amount of chosen category recipes
+    recipes_total = mongo.db.recipes.find({
+        "category_name": category_name
+    }).count()
+    
+    return render_template(
+        "recipes_by_category.html",
+        recipes=mongo.db.recipes.find({"category_name": category_name}),
+        categories=mongo.db.categories.find(),
+        category_name=category_name,
+        recipes_total=recipes_total)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
