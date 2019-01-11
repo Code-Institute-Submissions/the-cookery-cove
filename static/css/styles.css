@@ -160,3 +160,10 @@ i {
     height: auto;
     margin-top: 15px;
 }
+
+/*-- Headings --*/
+
+.cuisine-heading {
+    font-family:'Crete Round', serif;
+    font-size: 20px;
+}
