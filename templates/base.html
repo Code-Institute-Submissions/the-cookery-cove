@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    
     <title>The Cookery Cove</title>
 </head>
 <body>
-    
     <div id="wrapper">
         <div class="navbar-fixed">
-            <div class="nav-wrapper">
-                <a href="" class="cookery-cove left">The Cookery Cove</a>
+            <nav class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="cookery-cove left">The Cookery Cove</a>
+                
+                
                 <ul class="right hide-on-med-and-down nav-links">
                     <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i>Home</a></li>
+                   
                     {% if 'username' in session %}
                     <li><a href="{{url_for('signout')}}"><i class="fas fa-sign-in-alt"></i>Sign Out</a></li>
                     {% else %}
@@ -35,25 +34,29 @@
                     <li><a href="{{url_for('signin')}}"><i class="fas fa-sign-in-alt"></i>Sign In</a></li>
                     <li><a href="{{url_for('register')}}"><i class="fas fa-user-plus"></i>Register</a></li>
                     {% endif %}
-                </ul>            
-            </div>
+                </ul>
+                
+                <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="mobile-btn fas fa-align-justify"></i></a>
+                
+            </nav>
         </div>
+        
+        
+        <div id="content" class="container">{% block content %} {% endblock %}</div>
+       
+        <footer class="myfooter center-align" id="footer">
+            <div class="row col s6 m6 l6">
+                <p id="copyright">Created by Kim Pearton<a target="_blank" href="https://github.com/kimpea"><i class="fab fa-github fa-lg github hvr-pulse"></i></a></p>
+            </div>
+        </footer>
+        <div class="push"></div>
     </div>
     
-    <div id="content" class="container">{% block content %} {% endblock %}</div>
-    
-    <footer class="myfooter center-align" id="footer">
-        <div class="row col s6 m6 l6">
-            <p id="copyright">Created by Kim Pearton<a target="_blank" href="https://github.com/kimpea"><i class="fab fa-github fa-lg github hvr-pulse"></i></a></p>
-        </div>
-    </footer>
-    <div class="push"></div>
-    
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
         $(document).ready(function(){
+            $('.collapsible').collapsible();
             $('select').material_select();
             $(".button-collapse").sideNav({
                 edge: 'right',
@@ -73,6 +76,30 @@
                 }
             );
         }); 
+        if ($('#back-to-top').length) {
+            var scrollTrigger = 100, // px
+                backToTop = function() {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').removeClass('scale-out');
+                    }
+                    else {
+                        $('#back-to-top').addClass('scale-out');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function() {
+                backToTop();
+            });
+        
+            $('#back-to-top').on('click', function(e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 700);
+            });
+        }
+        
     </script>
 </body>
 </html>
