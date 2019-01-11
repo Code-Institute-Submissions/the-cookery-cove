@@ -5,7 +5,17 @@
 
 <div class="row card intro-card">
     <div class="card-content intro-card-content center-align">
-        
+        <h5 class="message">{{message|safe}}</h5>
+        {% if 'username' in session %}
+        {% else %}
+        <span class="intro">
+            <a href="{{url_for('signin')}}">
+                <strong>Sign In</strong>
+            </a> or 
+            <a href="{{url_for('register')}}">
+                <strong>Register</strong>
+            </a> to create your very own recipes and contribute to the community!</span>
+        {% endif %}
     </div>
 </div>
 
