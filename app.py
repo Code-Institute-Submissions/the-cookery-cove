@@ -9,9 +9,7 @@ app.config["MONGO_URI"] = 'mongodb://admin:cook1book2@ds129914.mlab.com:29914/on
 
 mongo = PyMongo(app)
 
-@app.route('/')
-def hello():
-    return 'Hello World'
+
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
