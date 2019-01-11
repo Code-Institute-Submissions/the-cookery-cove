@@ -282,6 +282,36 @@ def edit_recipe(username, recipe_id):
     return render_template('signin.html',
                     message='Please sign in or register to edit a recipe!')
 
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    """
+    Update the recipe in the database and direct user
+    back to the recipe
+    """
+    if 'username' in session:
+        recipes = mongo.db.recipes
+        recipes.update(
+                {'_id': ObjectId(recipe_id)},
+                {
+                    'recipe_name': request.form.get('recipe_name'),
+                    'cuisine_name': request.form.get('cuisine_name'),
+                    'recipe_ingredients': request.form.get('recipe_ingredients'),
+                    'recipe_method': request.form.get('recipe_method'),
+                    'prep_time': request.form.get('prep_time'),
+                    'cook_time': request.form.get('cook_time'),
+                    'serves': request.form.get('serves'),
+                    'recipe_allergens': request.form.get('recipe_allergens'),
+                    'recipe_description': request.form.get('recipe_description'),
+                    'image_url': request.form.get('image_url'),
+                    'author': session['username'],
+                    'difficulty_name': request.form.get('difficulty_name'),
+                    'category_name': request.form.getlist('category_name'),
+                    'main_ingredient': request.form.get('main_ingredient'),
+                    'allergen_name': request.form.getlist('allergen_name')
+                })
+        return redirect(url_for('get_recipe', recipe_id=recipe_id,
+                                        username=session['username']))
+
 
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
