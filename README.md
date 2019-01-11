@@ -25,3 +25,7 @@ Real Life User Stories:
 Wireframes:
 
  - Wireframes have been created using [Wireframe.cc](https://wireframe.cc/). These can be viewed in /documentation. 
+
+Database Schema:
+
+![Database Schema](/documentation/database_schema.png)
