@@ -116,6 +116,10 @@ i {
     color: #fff;
 }
 
+.recipe-heading i {
+    font-size: 15px;
+}
+
 /*-- Message Styles --*/
 
 .message {
@@ -187,8 +191,6 @@ i {
     width: 100%;
     height: auto;
 }
-
-/*-- Headings --*/
 
 .page-heading {
     font-family:'Crete Round', serif;
