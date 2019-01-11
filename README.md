@@ -30,6 +30,8 @@ Database Schema:
 
 ![Database Schema](/documentation/database_schema.png)
 
+A more detailed version of the UX Planes can be found [here](/documentation/ux_planes.pdf).
+
 ## Features
 
  - Login/Register form - this will allow the user to either log into an existing account or create a new account, inserting them into the database.
