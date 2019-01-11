@@ -32,12 +32,17 @@ body {
     margin-top: 15px;
 }
 
+.container {
+    width: 90% !important;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #023F69;
 }
+
 
 /*-- Navigation --*/
 
