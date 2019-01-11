@@ -110,3 +110,36 @@ nav i {
 i {
     padding-right: 10px;
 }
+
+
+/*-- Message Styles --*/
+
+.message {
+    font-family:'Crete Round', serif;
+}
+
+/*-- Home Styles --*/
+
+.intro-card .intro-card-content {
+    padding: 10px !important;
+    margin-top: 15px;
+}
+
+.intro {
+    font-size: 16px;
+}
+
+.intro a, .intro button {
+    color: #000;
+}
+
+.intro a:hover,
+.intro button:hover,
+.intro a:active,
+.intro button:active,
+.intro a:link,
+.intro button:link,
+.intro a:visited,
+.intro button:visited {
+    color: #000;
+}
