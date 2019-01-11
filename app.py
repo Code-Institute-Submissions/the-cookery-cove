@@ -50,6 +50,33 @@ def signout():
                                message='Signed out. See you later!')
     return render_template('message.html',
                            message='You have already signed out!')
+                           
+@app.route('/register')
+def register():
+    """
+    Register new user into the database
+    """
+    if 'username' in session:
+        return render_template('register.html', message='You are already signed in and registered')
+
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'username' : request.form['username']})
+
+        if request.form['username'] and request.form['password']:
+            # Check for existing user to avoid re-registering the same user
+            if existing_user is None:
+                password = request.form['password']
+                users.insert({'username': request.form['username'], 'password': password})
+                session['username'] = request.form['username']
+                return redirect(url_for('home'))
+            return render_template('register.html',
+                                   message='Username ' + str(existing_user['username']) + ' already exists')
+
+        return render_template('register.html',
+                                message='Enter a username and password')
+
+    return render_template('register.html', message='')
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
