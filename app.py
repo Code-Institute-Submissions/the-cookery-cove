@@ -249,7 +249,7 @@ def add_recipe(username):
                     main_ingredient.insert({
                     'main_ingredient': request.form.get('main_ingredient')
                     })
-                return redirect(url_for('home'))
+                return redirect(url_for('index'))
         return render_template('addrecipe.html', 
                                 cuisines=mongo.db.cuisines.find(),
                                 difficulties=mongo.db.difficulties.find(),
@@ -259,6 +259,28 @@ def add_recipe(username):
                                 username=session['username'])
                                 
     return render_template('signin.html')
+
+@app.route('/<username>/edit_recipe/<recipe_id>', methods=["GET",'POST'])
+def edit_recipe(username, recipe_id):
+    """
+    Direct user to editrecipe.html and update chosen recipe
+    once user presses 'update recipe' button
+    """
+    
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    cuisines = mongo.db.cuisines.find()
+    difficulties = mongo.db.difficulties.find()
+    if 'username' in session:
+        return render_template('editrecipe.html',
+                    recipe=the_recipe,
+                    cuisines=cuisines,
+                    difficulties=difficulties,
+                    categories=mongo.db.categories.find(),
+                    main_ingredients=mongo.db.main_ingredients.find(),
+                    allergens=mongo.db.allergens.find(),
+                    username=session['username'])
+    return render_template('signin.html',
+                    message='Please sign in or register to edit a recipe!')
 
 
 @app.route('/my_recipes/<username>')
