@@ -29,3 +29,13 @@ Wireframes:
 Database Schema:
 
 ![Database Schema](/documentation/database_schema.png)
+
+## Features
+
+ - Login/Register form - this will allow the user to either log into an existing account or create a new account, inserting them into the database.
+ - Add/edit recipe form - this will allow logged in users to either create a new recipe (which will be inserted into the database) or edit one of their own existing recipes (which will be updated).
+ - Delete recipe function - this will allow the logged in user to delete one of their own recipes, completely removing it from the database.
+ - Filter by category, cuisine, main ingredient or difficulty - this will allow the user to sort recipes by these filters, directing them to a page displaying these sorted recipes.
+ - Filter by cuisine - this will allow the user to be shown all recipes from a specific cuisine which they have chosen from the homepage.
+ - Log out - this will allow the user to log out of the current session, also providing them the option to return to the homepage or log back in.
+
