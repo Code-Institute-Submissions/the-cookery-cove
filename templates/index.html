@@ -17,6 +17,42 @@
             </a> to create your very own recipes and contribute to the community!</span>
         {% endif %}
     </div>
+    
+    
+    <div class="row filter-row cookery-buttons center-align">
+        <h5 class="message">Filter by:</h5>
+        <div class="col s12 m4">
+            <div class="filter-btn">
+            <a class='dropdown-button btn' href='#' data-activates='difficulty_name'>Difficulty</a>
+            <ul id="difficulty_name" class="dropdown-content">
+                {% for difficulty in difficulties %}
+                <li><a href="{{ url_for('recipes_by_difficulty', difficulty_name=difficulty.difficulty_name) }}" class="white-text">{{ difficulty.difficulty_name }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+        <div class="col s12 m4 ">
+            <div class="filter-btn">
+            <a class='dropdown-button btn' href='#' data-activates='category_name'>Category</a>
+            <ul id="category_name" class="dropdown-content">
+                {% for category in categories %}
+                <li><a href="{{ url_for('recipes_by_category', category_name=category.category_name) }}" class="white-text">{{ category.category_name }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="filter-btn">
+            <a class='dropdown-button btn' href='#' data-activates='main_ingredient'>Ingredient</a>
+            <ul id="main_ingredient" class="dropdown-content">
+                {% for ingredient in main_ingredients %}
+                <li><a href="{{ url_for('recipes_by_main', main_ingredient=ingredient.main_ingredient) }}" class="white-text">{{ ingredient.main_ingredient }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <div class="row">
