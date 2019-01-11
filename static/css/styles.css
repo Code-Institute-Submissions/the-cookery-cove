@@ -27,6 +27,18 @@ body {
     background-color: #4E83A8;
 }
 
+#content {
+    padding-bottom: 60px;
+    margin-top: 15px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #023F69;
+}
+
 /*-- Navigation --*/
 
 nav {
