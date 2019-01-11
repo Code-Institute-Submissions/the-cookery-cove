@@ -18,7 +18,15 @@ def index():
     """
     Return index.html which is the first page the user will see
     """
-    return render_template("index.html")
+    if 'username' in session:
+        return render_template("home.html", 
+        recipes=mongo.db.recipes.find(),
+        cuisines=mongo.db.cuisines.find(),
+        message='Welcome, ' + str(session['username']) + ', to The Cookery Cove!')
+    return render_template("home.html", 
+    message='Welcome to The Cookery Cove!',
+    recipes=mongo.db.recipes.find(),
+    cuisines=mongo.db.cuisines.find())
     
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
