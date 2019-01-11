@@ -108,6 +108,18 @@ def get_recipe(recipe_id):
                             recipe=the_recipe,
                             ingredient_split=ingredient_split,
                             method_split=method_split)
+                            
+                            
+@app.route('/all_recipes')
+def all_recipes():
+    
+    recipes = mongo.db.recipes.find()
+    recipes_total = recipes.count()
+    
+    return render_template("allrecipes.html",
+                            recipes_total=recipes_total,
+                            recipes=recipes)
+                            
 
 @app.route('/recipes_by_cuisine/<cuisine_name>')
 def recipes_by_cuisine(cuisine_name):
