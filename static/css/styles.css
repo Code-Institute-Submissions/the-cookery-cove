@@ -161,9 +161,32 @@ i {
     margin-top: 15px;
 }
 
+.recipe-info-all {
+    padding-left: 12px;
+    padding-top: 10px;
+}
+
+
 /*-- Headings --*/
 
 .cuisine-heading {
     font-family:'Crete Round', serif;
     font-size: 20px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+/*-- Headings --*/
+
+.page-heading {
+    font-family:'Crete Round', serif;
+    font-size: 35px;
+}
+
+.recipe-heading {
+    font-family:'Crete Round', serif;
+    font-size: 20px !important;
 }
