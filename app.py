@@ -14,9 +14,9 @@ mongo = PyMongo(app)
 @app.route('/home')
 def home():
     """
-    Return home.html which is the first page the user will see
+    Return index.html which is the first page the user will see
     """
-    return render_template("home.html")
+    return render_template("index.html")
     
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -25,7 +25,7 @@ def signin():
     and password and manage their recipes
     """
     if 'username' in session:
-        return render_template('home.html',
+        return render_template('index.html',
                                 message="You are already signed in!")
     
     if request.method == 'POST':
