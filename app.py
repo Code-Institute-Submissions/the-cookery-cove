@@ -23,10 +23,12 @@ def index():
         return render_template("index.html", 
         recipes=mongo.db.recipes.find(),
         cuisines=mongo.db.cuisines.find(),
+        difficulties=mongo.db.difficulties.find(),
         message='Welcome, ' + str(session['username']) + ', to The Cookery Cove!')
     return render_template("index.html", 
     message='Welcome to The Cookery Cove!',
     recipes=mongo.db.recipes.find(),
+    difficulties=mongo.db.difficulties.find(),
     cuisines=mongo.db.cuisines.find())
     
 @app.route('/signin', methods=['GET', 'POST'])
