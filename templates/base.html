@@ -20,9 +20,21 @@
                 <a href="" class="cookery-cove left">The Cookery Cove</a>
                 <ul class="right hide-on-med-and-down nav-links">
                     <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i>Home</a></li>
+                    {% if 'username' in session %}
+                    <li><a href="{{url_for('signout')}}"><i class="fas fa-sign-in-alt"></i>Sign Out</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('signin')}}"><i class="fas fa-sign-in-alt"></i>Sign In</a></li>
+                    <li><a href="{{url_for('register')}}"><i class="fas fa-user-plus"></i>Register</a></li>
+                    {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i>Home</a></li>
+                    {% if 'username' in session %}
+                    <li><a href="{{url_for('signout')}}"><i class="fas fa-sign-in-alt"></i>Sign Out</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('signin')}}"><i class="fas fa-sign-in-alt"></i>Sign In</a></li>
+                    <li><a href="{{url_for('register')}}"><i class="fas fa-user-plus"></i>Register</a></li>
+                    {% endif %}
                 </ul>            
             </div>
         </div>
