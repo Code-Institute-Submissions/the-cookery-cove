@@ -84,3 +84,25 @@ nav i {
 #sidenav-overlay {
   z-index: 1 !important;
 }
+
+/*-- Forms & Buttons --*/
+
+.cookery-buttons a, .cookery-buttons button {
+    background-color: #034f84;
+    margin-bottom: 5px;
+}
+
+.cookery-buttons a:hover,
+.cookery-buttons button:hover,
+.cookery-buttons a:active,
+.cookery-buttons button:active,
+.cookery-buttons a:link,
+.cookery-buttons button:link,
+.cookery-buttons a:visited,
+.cookery-buttons button:visited {
+    background-color: #034f84;
+}
+
+i {
+    padding-right: 10px;
+}
