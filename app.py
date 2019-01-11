@@ -39,6 +39,18 @@ def signin():
         return render_template('signin.html', message='Invalid username or password')
     return render_template('signin.html', message='')
     
+@app.route('/signout')
+def signout():
+    """
+    Sign user out of the session
+    """
+    if 'username' in session:
+        session.pop('username')
+        return render_template('message.html',
+                               message='Signed out. See you later!')
+    return render_template('message.html',
+                           message='You have already signed out!')
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
