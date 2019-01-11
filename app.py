@@ -1,5 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+import math
 import os
 
 app = Flask(__name__)
@@ -98,6 +100,24 @@ def get_recipe(recipe_id):
                             ingredient_split=ingredient_split,
                             method_split=method_split)
 
+@app.route('/recipes_by_cuisine/<cuisine_name>')
+def recipes_by_cuisine(cuisine_name):
+    """
+    Get all recipes of a chosen cuisine and display
+    these recipes on one page
+    """
+    
+    # Counts total amount of chosen cuisine recipes
+    recipes_total = mongo.db.recipes.find({
+        "cuisine_name": cuisine_name
+    }).count()
+    
+    return render_template(
+        "recipes_by_cuisine.html",
+        recipes=mongo.db.recipes.find({"cuisine_name": cuisine_name}),
+        cuisines=mongo.db.cuisines.find(),
+        cuisine_name=cuisine_name,
+        recipes_total=recipes_total)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
