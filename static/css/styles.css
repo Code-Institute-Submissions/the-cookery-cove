@@ -143,3 +143,20 @@ i {
 .intro button:visited {
     color: #000;
 }
+
+/*-- Recipe Styles --*/
+
+.info-card {
+    margin-top: 15px;
+}
+
+.getrecipe-heading {
+    font-family:'Crete Round', serif;
+    font-size: 25px;
+}
+
+.getrecipe-image {
+    width:75%;
+    height: auto;
+    margin-top: 15px;
+}
