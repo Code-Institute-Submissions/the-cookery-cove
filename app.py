@@ -78,6 +78,27 @@ def register():
 
     return render_template('register.html', message='')
     
+@app.route('/get_recipe/<recipe_id>')
+def get_recipe(recipe_id):
+    """
+    Get recipe and display it on getrecipe.html
+    """
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Splits ingredients input into a list    
+    ingredient_split = the_recipe['recipe_ingredients'].split('\n')
+    for ingredient in ingredient_split:
+        print(ingredient)
+    # Splits methods input into a list    
+    method_split = the_recipe['recipe_method'].split('\n')
+    for method in method_split:
+        print(method)
+    
+    return render_template("getrecipe.html",
+                            recipe=the_recipe,
+                            ingredient_split=ingredient_split,
+                            method_split=method_split)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
