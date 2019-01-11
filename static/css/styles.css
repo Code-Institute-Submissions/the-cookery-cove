@@ -109,6 +109,13 @@ i {
     color: #034f84;
 }
 
+
+#back-to-top i {
+    padding-left: 10px;
+    background-color: #023F69;
+    color: #fff;
+}
+
 /*-- Message Styles --*/
 
 .message {
