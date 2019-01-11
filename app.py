@@ -23,7 +23,7 @@ def index():
         recipes=mongo.db.recipes.find(),
         cuisines=mongo.db.cuisines.find(),
         message='Welcome, ' + str(session['username']) + ', to The Cookery Cove!')
-    return render_template("home.html", 
+    return render_template("index.html", 
     message='Welcome to The Cookery Cove!',
     recipes=mongo.db.recipes.find(),
     cuisines=mongo.db.cuisines.find())
