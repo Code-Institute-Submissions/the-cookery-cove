@@ -111,6 +111,23 @@ i {
     padding-right: 10px;
 }
 
+.home-btn  {
+    font-weight: bold;
+    padding: 0;
+    font-size: 18px;
+    color: #034f84;
+}
+
+.cuisine-heading i {
+    font-size: 15px;
+}
+
+.view-btn {
+    font-weight: bold;
+    padding: 0;
+    font-size: 15px;
+    color: #034f84;
+}
 
 /*-- Message Styles --*/
 
