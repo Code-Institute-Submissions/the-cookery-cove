@@ -1,0 +1,38 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+    <title>The Cookery Cove</title>
+</head>
+<body>
+    
+    <div id="wrapper">
+        <div class="navbar-fixed">
+            <div class="nav-wrapper">
+                <a href="" class="cookery-cove left">The Cookery Cove</a>
+                <ul class="right hide-on-med-and-down nav-links">
+                    <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a></li>
+                </ul>            
+            </div>
+        </div>
+    </div>
+    
+    <div id="content" class="container">{% block content %} {% endblock %}</div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    
+</body>
+</html>
