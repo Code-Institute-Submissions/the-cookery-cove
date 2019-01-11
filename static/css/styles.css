@@ -1,3 +1,7 @@
+/*-- Google Fonts --*/
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Crete+Round');
+
 /*-- HTML and Body --*/
 
 html {
@@ -21,4 +25,33 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-color: #4E83A8;
+}
+
+/*-- Navigation --*/
+
+nav {
+    margin-bottom: 25px;
+}
+
+.nav-wrapper {
+    background-color: #023F69;
+}
+
+.cookery-cove {
+    font-size: 30px;
+    position: absolute;
+    display: inline-block;
+    padding-left: 10px;
+    color: #fff;
+    font-family: 'Abril Fatface', serif;
+}
+
+nav i {
+    padding-right: 15px;
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+#sidenav-overlay {
+  z-index: 1 !important;
 }
