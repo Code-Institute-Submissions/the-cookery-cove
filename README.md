@@ -41,3 +41,11 @@ A more detailed version of the UX Planes can be found [here](/documentation/ux_p
  - Filter by cuisine - this will allow the user to be shown all recipes from a specific cuisine which they have chosen from the homepage.
  - Log out - this will allow the user to log out of the current session, also providing them the option to return to the homepage or log back in.
 
+### Existing Features
+
+ - Register form allows User 1 to create their chosen username 'USER1' and have a password of their choice which they can use to log in.
+ - Filters on homepage allow User 2 to find vegetarian OR vegan recipes (but not both at the same time).
+ - Add/edit recipe form allows User 3 to create their 'Classic Trifle' recipe. They can then view this in 'My Recipes' and 'All Recipes'.
+ - Add/edit recipe form allows User 4 to select various allergens to be listed in their recipe when it is submitted into the database.
+ - Delete recipe function allows all users to delete their own recipes, however, at this point in time, any user can delete any other user's recipes which is one disadvantage. 
+ - Logout allows all users to log out of their current sessions, providing them the options to return to homepage or log back in.
