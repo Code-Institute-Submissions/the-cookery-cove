@@ -49,3 +49,9 @@ A more detailed version of the UX Planes can be found [here](/documentation/ux_p
  - Add/edit recipe form allows User 4 to select various allergens to be listed in their recipe when it is submitted into the database.
  - Delete recipe function allows all users to delete their own recipes, however, at this point in time, any user can delete any other user's recipes which is one disadvantage. 
  - Logout allows all users to log out of their current sessions, providing them the options to return to homepage or log back in.
+
+### Features Left to Implement
+
+ - Like/Dislike recipe - this feature would allow the user to like or dislike any recipe. The results of these likes and dislikes would then be displayed on a graphical chart with D3.js. 
+ - Favourite a recipe - this feature would allow the user to save their favourite recipes and view them under 'Favourite Recipes'.
+ - Most popular/most recent recipes - this feature will display most popular/most recent recipes based on how many likes the recipe received or how recently the recipe was created.
