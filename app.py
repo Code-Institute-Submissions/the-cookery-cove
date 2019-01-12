@@ -311,6 +311,17 @@ def update_recipe(recipe_id):
                 })
         return redirect(url_for('get_recipe', recipe_id=recipe_id,
                                         username=session['username']))
+                                        
+@app.route('/<username>/delete_recipe/<recipe_id>')
+def delete_recipe(username, recipe_id):
+    """
+    Delete recipe from database
+    """
+    if 'username' in session:
+        mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+        return redirect(url_for('my_recipes', username=session['username']))
+    return render_template('signin.html',
+                    message='Please sign in or register to delete a recipe!')
 
 
 @app.route('/my_recipes/<username>')
