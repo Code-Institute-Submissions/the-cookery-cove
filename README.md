@@ -84,3 +84,69 @@ A more detailed version of the UX Planes can be found [here](/documentation/ux_p
     - This project uses **Wireframes CC** for the Skeleton and Surface Plan, providing desktop, tablet and mobile views of the web application.
 - [Google Fonts](https://fonts.google.com/)
     - This project uses **Google Fonts** to provide fonts for the headings of the web application.
+
+## Testing
+
+### Manual Tests
+
+This web application has been manually tested with different scenarios that the user may experience.
+
+1. Sign In
+    1. Click on 'Sign In' in the header or in the welcome card and be directed to 'signin.html'.
+    2. Sign in with username 'USER1' and password 'user1'.
+    3. Click on 'Sign In' and be directed back to the homepage.
+    4. Check the user is logged in by seeing if 'Add Recipe' and 'My Recipes' are available in the navigation.
+
+2. Register
+    1. Click on 'Register' in the header or in the welcome card and be directed to 'register.html'.
+    2. Choose a username and password of your choice.
+    3. Click on 'Register' and be redirected to 'home.html'.
+    4. Check the user is logged in by seeing if 'Add Recipe' and 'My Recipe' are available in the navigation. 
+
+3. Homepage
+    1. Click on the brand logo in the top-left corner of the page or click on 'Home' in the navigation bar.
+    2. Be directed to 'home.html'.
+
+4. Recipes by...
+    1. Choose to filter by category, difficulty or ingredient and select an option from the dropdown.
+    2. Be directed to appropriate page depending on whichever filter has been chosen.
+
+5. Recipes By Cuisine
+    1. From the homepage, choose a cuisine and be shown cuisine description and a button to view all recipes by chosen cuisine.
+
+6. All Recipes
+    1. Choose 'All Recipes' in the navigation bar and be directed to 'allrecipes.html'. 
+    2. Be shown all recipes in the database on one page.
+    3. Be shown recipe description and details when card is clicked on.
+
+7. View Recipe
+    1. Click on 'View Recipe'
+    2. Be directed to the get_recipe page and be shown all details of the recipe, including the ingredients, method and image.
+
+8. Add Recipe
+    1. If username is in session, be directed to 'addrecipe.html'.
+    2. Fill in all details in the form and click 'Add Recipe'.
+    3. Be redirected to the homepage. 
+
+9. Edit Recipe
+    1. On 'My Recipes', click on 'Edit Recipe' when viewing a recipe card.
+    2. Edit any details within the form.
+    3. Click on 'Update Recipe' and be redirected to 'home.html'. 
+
+10. Delete Recipe
+    1. On 'My Recipes', click on 'Delete Recipe' when viewing a recipe card.
+    2. Be redirected to 'My Recipes' and see if the recipe has been deleted from the database. 
+
+11. Return To Homepage
+    1. Click on 'Return To Homepage' and be redirected to 'home.html'. 
+
+12. Sign Out
+    1. Click on Sign Out and be directed to the message page with options to sign back in or return to homepage. 
+
+### Responsiveness Testing
+
+This application has been tested on all mobile, tablet and desktop screen sizes with the Firefox Mozilla Developer Tools and Google Chrome Developer Tools. From these tests, all issues have been resolved.
+
+### Bugs
+
+In the 'Edit Recipe' form, the 'Category' and 'Allergens' dropdown list will not have preselected values.
