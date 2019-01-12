@@ -179,3 +179,11 @@ It can be installed with the following steps:
  - From heroku.com app settings: set config vars to IP : 0.0.0.0, PORT : 5000 and MONGO_URI :mongodb://[username]:[password]@ds129914.mlab.com:29914/online_cookbook, ensuring that you update the username and password accordingly.
  - Click More > Restart all Dynos
  - Application is live at https://your-app-name.herokuapp.com/
+
+## Credits and Acknowledgements
+
+- I would like to credit Stack Overflow for helping me fix all of the bugs within the application, and I would also like to credit the Code Institute Data Centric Development lessons.
+
+### Media
+
+- All images used in this application are obtained from [BBC Goodfood](https://www.bbcgoodfood.com/)
