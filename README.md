@@ -150,3 +150,32 @@ This application has been tested on all mobile, tablet and desktop screen sizes 
 ### Bugs
 
 In the 'Edit Recipe' form, the 'Category' and 'Allergens' dropdown list will not have preselected values.
+
+## Deployment
+
+The source code for this application can be found on [Github](https://github.com/kimpea/the-cookery-cove) and the application itself has been deployed onto [Heroku](https://the-cookery-cove.herokuapp.com/). There is no difference between the GitHub code and the code in the live application. 
+
+It can be installed with the following steps:
+
+ - Download the git repository
+ - Sign up/login to Heroku.com
+ - From the dashboard click Create New App
+ - Enter a unique name and your region and click Create
+ - From your command line, enter ```heroku``` to ensure heroku is installed (if not installed this can be done with ```sudo snap install --classic heroku```)
+    ```
+    heroku login
+    ```
+ - Enter your credentials for heroku.com
+    ```
+    sudo pip3 install Flask
+    sudo pip3 install pymongo
+    sudo pip3 freeze --local > requirements.txt
+    echo web: python run.py > Procfile
+    git add .
+    git commit -m "initial commit"
+    git push -u heroku master
+    heroku ps:scale web=1
+    ```
+ - From heroku.com app settings: set config vars to IP : 0.0.0.0, PORT : 5000 and MONGO_URI :mongodb://[username]:[password]@ds129914.mlab.com:29914/online_cookbook, ensuring that you update the username and password accordingly.
+ - Click More > Restart all Dynos
+ - Application is live at https://your-app-name.herokuapp.com/
