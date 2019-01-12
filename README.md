@@ -176,6 +176,7 @@ It can be installed with the following steps:
     git push -u heroku master
     heroku ps:scale web=1
     ```
+ - Make sure to set debug to True.
  - From heroku.com app settings: set config vars to IP : 0.0.0.0, PORT : 5000 and MONGO_URI :mongodb://[username]:[password]@ds129914.mlab.com:29914/online_cookbook, ensuring that you update the username and password accordingly.
  - Click More > Restart all Dynos
  - Application is live at https://your-app-name.herokuapp.com/
