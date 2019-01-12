@@ -55,3 +55,32 @@ A more detailed version of the UX Planes can be found [here](/documentation/ux_p
  - Like/Dislike recipe - this feature would allow the user to like or dislike any recipe. The results of these likes and dislikes would then be displayed on a graphical chart with D3.js. 
  - Favourite a recipe - this feature would allow the user to save their favourite recipes and view them under 'Favourite Recipes'.
  - Most popular/most recent recipes - this feature will display most popular/most recent recipes based on how many likes the recipe received or how recently the recipe was created.
+
+## Technologies Used
+
+- HTML
+    - This project uses **HTML** to build the foundation of the web application and includes links to Materialize, Materialize JS, CSS, and Font Awesome.
+- CSS
+    - This project uses **CSS** to style the features of the web application, including the header, footer and each page of the cookbook.
+- [JavaScript](https://www.javascript.com/)
+    - This project uses **JavaScript** for interactive functionality of the application.
+- [Python](https://www.python.org/)
+    - This project uses **Python** to provide the backend functionality of the cookbook, including functions to add, edit or delete a recipe.
+- PyMongo
+    - This project uses **PyMongo** which is a MongoDB driver for Python, used to access the MongoDB database.
+- [JSON](https://www.json.org/)
+    - This project uses **JSON** within mLab to provide the core data for the cookbook, including recipes, users, categories, etc.
+- [mLab](https://mlab.com/)
+    - This project uses **mLab** to host the database for the application.
+- [Flask](http://flask.pocoo.org/)
+    - This project uses the **Flask** microframework to bring the frontend and backend of the application together.
+- [jQuery](https://jquery.com/)
+    - This project uses **jQuery** which is included with Materialize to initialise many of the Materialize components used within the application (script found in base.html). 
+- [MongoDB](https://www.mongodb.com/)
+    - This project uses **MongoDB** which is used to contain the database collections.
+- [Font Awesome](https://fontawesome.com/)
+    - This project uses **Font Awesome** to provide icons for the application.
+- [Wireframes.cc](https://wireframe.cc/)
+    - This project uses **Wireframes CC** for the Skeleton and Surface Plan, providing desktop, tablet and mobile views of the web application.
+- [Google Fonts](https://fonts.google.com/)
+    - This project uses **Google Fonts** to provide fonts for the headings of the web application.
