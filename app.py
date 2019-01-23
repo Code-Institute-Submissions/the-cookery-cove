@@ -119,6 +119,9 @@ def get_recipe(recipe_id):
                             
 @app.route('/all_recipes')
 def all_recipes():
+    """
+    Display all recipes on one page
+    """
     recipes = mongo.db.recipes.find()
     recipes_total = recipes.count()
     return render_template("allrecipes.html",
