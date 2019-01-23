@@ -8,16 +8,12 @@
         {% if 'username' in session %}
         {% else %}
         <span class="intro">
-            <a href="{{url_for('signin')}}">
-                <strong>Sign In</strong>
-            </a> or 
-            <a href="{{url_for('register')}}">
-                <strong>Register</strong>
-            </a> to create your very own recipes and contribute to the community!</span>
+            <a href="{{url_for('signin')}}"><strong>Sign In</strong></a> or <a href="{{url_for('register')}}"><strong>Register</strong></a> to create your very own recipes and contribute to the community!
+        </span>
         {% endif %}
     </div>
     
-    
+    <!-- Filter Dropdowns -->
     <div class="row filter-row cookery-buttons center-align">
         <h5 class="message">Filter by:</h5>
         <div class="col s12 m4">
@@ -54,6 +50,7 @@
 </div>
 </div>
 
+<!-- Cuisine Grid -->
 <div class="row">
     {% for cuisine in cuisines %}
     <div class="col s12 m6 l3">
@@ -67,7 +64,8 @@
             <div class="card-reveal">
                 <span class="card-title cuisine-heading">{{cuisine.cuisine_name}}<i class="fas fa-times right"></i></span>
                 <p>{{cuisine.cuisine_description}}</p>
-                <i class="fas fa-book"></i><a href="{{ url_for('recipes_by_cuisine', cuisine_name=cuisine.cuisine_name) }}" class="waves-effect waves-light view-btn">View All {{cuisine.cuisine_name}} Recipes</a>
+                <i class="fas fa-book"></i>
+                <a href="{{ url_for('recipes_by_cuisine', cuisine_name=cuisine.cuisine_name) }}" class="waves-effect waves-light view-btn">View All {{cuisine.cuisine_name}} Recipes</a>
             </div>
         </div>
     </div>
