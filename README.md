@@ -147,6 +147,10 @@ This web application has been manually tested with different scenarios that the 
 
 This application has been tested on all mobile, tablet and desktop screen sizes with the Firefox Mozilla Developer Tools and Google Chrome Developer Tools. From these tests, all issues have been resolved.
 
+### Code Validation
+
+The HTML, CSS and JavaScript code for this application has been run through and validated by The W3C Markup Validation Service and JSHint, with the exception of the validation service seeing the Flask/Jinja markup as errors.
+
 ### Bugs
 
 In the 'Edit Recipe' form, the 'Category' and 'Allergens' dropdown list will not have preselected values.
@@ -183,9 +187,11 @@ It can be installed with the following steps:
  - Click More > Restart all Dynos
  - Application is live at https://your-app-name.herokuapp.com/
 
+This application's source code has been modified since the initial deployment - this was to fix a major bug regarding the register functionality, and to also tidy up the indentation of the HTML templates.
+
 ## Credits and Acknowledgements
 
-- I would like to credit Stack Overflow for helping me fix all of the bugs within the application, and I would also like to credit the Code Institute Data Centric Development lessons.
+- I would like to credit Stack Overflow for helping me fix all of the minor bugs within the application, and I would also like to credit the Code Institute Data Centric Development lessons.
 
 ### Media
 
