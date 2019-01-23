@@ -56,7 +56,7 @@
                     </div>
                     <ul>
                         <li><i class="fas fa-book"></i><a href="{{url_for('get_recipe', recipe_id=recipe._id, username=session['username'])}}" class="view-btn">View Recipe</a></li>
-                        <li><i class="fas fa-edit"></i></i><a href="{{url_for('edit_recipe', recipe_id=recipe._id, username=session['username'])}}" class="edit-btn">Edit Recipe</a></li>
+                        <li><i class="fas fa-edit"></i><a href="{{url_for('edit_recipe', recipe_id=recipe._id, username=session['username'])}}" class="edit-btn">Edit Recipe</a></li>
                         <li><i class="fas fa-trash-alt"></i><a href="{{url_for('delete_recipe', recipe_id=recipe._id, username=session['username'])}}" class="delete-btn">Delete Recipe</a></li>
                     </ul>
                 </div>
