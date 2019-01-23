@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 
+{% block content %}
+
+<!-- First Card -->
 <div class="row center-align card">
     <div class="col s12 m6 l6 ">
         <div class="card-content info-card">
@@ -12,13 +15,14 @@
             </div>
             <div class="row">
                 <div class="recipe-info">
-                    <span><strong>Category: </strong>{% for category_name in recipe.category_name %}
-                                    {% if category_name != "" %}
-                                    <span>{{ category_name }},</span>
-                                    {% else %}
-                                    <span>None</span>
-                                    {% endif %}
-                                {% endfor %}</span>
+                    <span><strong>Category: </strong>
+                    {% for category_name in recipe.category_name %}
+                        {% if category_name != "" %}
+                        <span>{{ category_name }},</span>
+                        {% else %}
+                        <span>None</span>
+                        {% endif %}
+                    {% endfor %}</span>
                 </div>
                 <div class="recipe-info">
                     <span><strong>Difficulty: </strong>{{ recipe.difficulty_name }}</span>
@@ -36,19 +40,19 @@
                     <span><strong>Serves: </strong>{{ recipe.serves }}</span>
                 </div>
                 <div class="recipe-info">
-                    <span><strong>Allergens: </strong>{% for allergen_name in recipe.allergen_name %}
-                                    {% if allergen_name != "" %}
-                                    <span>{{ allergen_name }},</span>
-                                    {% else %}
-                                    <span>None</span>
-                                    {% endif %}
-                                {% endfor %}</span>
+                    <span><strong>Allergens: </strong>
+                    {% for allergen_name in recipe.allergen_name %}
+                        {% if allergen_name != "" %}
+                        <span>{{ allergen_name }},</span>
+                        {% else %}
+                        <span>None</span>
+                        {% endif %}
+                    {% endfor %}</span>
                 </div>
                 <a href="{{ url_for('index') }}" class="home-btn">Home</a>
             </div>
         </div>
     </div>
-    
     <div class="col s12 m6 l6">
         <div class="card-content row">
             <img src="{{ recipe.image_url }}" class="getrecipe-image circle responsive-img">
@@ -56,33 +60,28 @@
     </div>
 </div>
 
+<!-- Second Card -->
 <div class="row card">
     <div class="col s12 m6 l6">
         <div class="card-content center-align">   
             <span class="getrecipe-heading"><strong>Ingredients</strong></span>
             <ul>
                 {% for ingredient in ingredient_split %}
-                <li>
-                    <span>{{ ingredient }}</span>
-                </li>
+                <li><span>{{ ingredient }}</span></li>
                 {% endfor %}
             </ul>  
         </div>
     </div>
-    
     <div class="col s12 m6 l6">
         <div class="card-content">
             <span class="getrecipe-heading"><strong>Method</strong></span>    
             <ul>
                 {% for method in method_split %}
-                    <li>
-                        <span>{{ method }}</span>
-                    </li>
+                    <li><span>{{ method }}</span></li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </div>
-
 
 {% endblock %}
