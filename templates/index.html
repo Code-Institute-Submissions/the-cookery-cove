@@ -38,7 +38,7 @@
         </div>
         <div class="col s12 m4">
             <div class="filter-btn">
-            <a class='dropdown-button btn' href='#' data-activates='main_ingredient'>Ingredient</a>
+            <a class='dropdown-button btn' href='#' data-activates='main_ingredient'>Main Ingredient</a>
             <ul id="main_ingredient" class="dropdown-content">
                 {% for ingredient in main_ingredients %}
                 <li><a href="{{ url_for('recipes_by_main', main_ingredient=ingredient.main_ingredient) }}" class="white-text">{{ ingredient.main_ingredient }}</a></li>
