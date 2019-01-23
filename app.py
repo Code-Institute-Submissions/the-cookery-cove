@@ -73,7 +73,7 @@ def signout():
                            message='You have already signed out!')
          
                            
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     """
     Register new user into the database
