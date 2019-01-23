@@ -151,6 +151,8 @@ This application has been tested on all mobile, tablet and desktop screen sizes 
 
 In the 'Edit Recipe' form, the 'Category' and 'Allergens' dropdown list will not have preselected values.
 
+Register functionality bug - this function was missing a key line of code which did not allow the user to successfully register into the application and therefore threw a "Method Not Allowed" Exception. This has been corrected and re-tested.
+
 ## Deployment
 
 The source code for this application can be found on [Github](https://github.com/kimpea/the-cookery-cove) and the application itself has been deployed onto [Heroku](https://the-cookery-cove.herokuapp.com/). There is no difference between the GitHub code and the code in the live application. 
