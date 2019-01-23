@@ -27,7 +27,7 @@ def index():
         difficulties=mongo.db.difficulties.find(),
         main_ingredients=mongo.db.main_ingredients.find(),
         allergens=mongo.db.allergens.find(),
-        message='Welcome, ' + str(session['username']) + ', to The Cookery Cove!')
+        message='Welcome, '+ str(session['username']) + ', to The Cookery Cove!')
     return render_template("index.html", 
     message='Welcome to The Cookery Cove!',
     recipes=mongo.db.recipes.find(),
@@ -46,7 +46,7 @@ def signin():
     """
     if 'username' in session:
         return render_template('index.html',
-                                message="You are already signed in!")
+            message="You are already signed in!")
     
     if request.method == 'POST':
         users = mongo.db.users
@@ -56,7 +56,8 @@ def signin():
             if request.form['password'] == user_signin['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
-        return render_template('signin.html', message='Invalid username or password')
+        return render_template('signin.html', 
+                                message='Invalid username or password')
     return render_template('signin.html', message='')
     
     
@@ -70,16 +71,17 @@ def signout():
         return render_template('message.html',
                                message='Signed out. See you later!')
     return render_template('message.html',
-                           message='You have already signed out!')
-         
-                           
+                            message='You have already signed out!')
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
     Register new user into the database
     """
     if 'username' in session:
-        return render_template('register.html', message='You are already signed in and registered')
+        return render_template('register.html', 
+                        message='You are already signed in and registered')
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'username' : request.form['username']})
@@ -87,11 +89,12 @@ def register():
             # Check for existing user to avoid re-registering the same user
             if existing_user is None:
                 password = request.form['password']
-                users.insert({'username': request.form['username'], 'password': password})
+                users.insert({'username': request.form['username'],
+                              'password': password})
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
             return render_template('register.html',
-                                   message='Username ' + str(existing_user['username']) + ' already exists')
+            message='Username ' + str(existing_user['username']) + ' already exists')
         return render_template('register.html',
                                 message='Enter a username and password')
     return render_template('register.html', message='')
@@ -115,8 +118,8 @@ def get_recipe(recipe_id):
                             recipe=the_recipe,
                             ingredient_split=ingredient_split,
                             method_split=method_split)
-                            
-                            
+
+   
 @app.route('/all_recipes')
 def all_recipes():
     """
@@ -127,7 +130,7 @@ def all_recipes():
     return render_template("allrecipes.html",
                             recipes_total=recipes_total,
                             recipes=recipes)
-                            
+  
 
 @app.route('/recipes_by_cuisine/<cuisine_name>')
 def recipes_by_cuisine(cuisine_name):
@@ -181,8 +184,8 @@ def recipes_by_category(category_name):
         categories=mongo.db.categories.find(),
         category_name=category_name,
         recipes_total=recipes_total)
-        
-        
+
+
 @app.route('/recipes_by_main/<main_ingredient>')
 def recipes_by_main(main_ingredient):
     """
@@ -242,12 +245,12 @@ def add_recipe(username):
                     })
                 return redirect(url_for('index'))
         return render_template('addrecipe.html', 
-                                cuisines=mongo.db.cuisines.find(),
-                                difficulties=mongo.db.difficulties.find(),
-                                categories=mongo.db.categories.find(),
-                                main_ingredients=mongo.db.main_ingredients.find(),
-                                allergens=mongo.db.allergens.find(),
-                                username=session['username'])     
+                            cuisines=mongo.db.cuisines.find(),
+                            difficulties=mongo.db.difficulties.find(),
+                            categories=mongo.db.categories.find(),
+                            main_ingredients=mongo.db.main_ingredients.find(),
+                            allergens=mongo.db.allergens.find(),
+                            username=session['username'])     
     return render_template('signin.html')
 
 
@@ -302,8 +305,8 @@ def update_recipe(recipe_id):
                 })
         return redirect(url_for('get_recipe', recipe_id=recipe_id,
                                         username=session['username']))
-                                        
-                                        
+
+
 @app.route('/<username>/delete_recipe/<recipe_id>')
 def delete_recipe(username, recipe_id):
     """
