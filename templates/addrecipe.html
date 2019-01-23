@@ -12,20 +12,20 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
                         <select id="cuisine" name="cuisine_name" class="cuisine-select">
-                          <option value="" disabled selected>Choose Cuisine</option>
-                          {% for cuisine in cuisines %}
-                          <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
-                          {% endfor %}
-                          <option value="None">None</option>
+                            <option value="" disabled selected>Choose Cuisine</option>
+                            {% for cuisine in cuisines %}
+                            <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
+                            {% endfor %}
+                            <option value="None">None</option>
                         </select>
                         <label><i class="fas fa-align-justify"></i>Recipe Cuisine</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <select multiple id="category" name="category_name">
-                          <option value="" disabled selected>Choose Category</option>
-                          {% for category in categories %}
-                          <option value="{{category.category_name}}">{{category.category_name}}</option>
-                          {% endfor %}
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for category in categories %}
+                            <option value="{{category.category_name}}">{{category.category_name}}</option>
+                            {% endfor %}
                         </select>
                         <label><i class="fas fa-align-justify"></i>Recipe Category</label>
                     </div>
@@ -65,10 +65,10 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <select id="difficulty_name" name="difficulty_name" class="validate" required>
-                          <option value="" disabled selected>Choose Difficulty</option>
-                          {% for difficulty in difficulties %}
-                          <option value="{{difficulty.difficulty_name}}">{{difficulty.difficulty_name}}</option>
-                          {% endfor %}
+                            <option value="" disabled selected>Choose Difficulty</option>
+                            {% for difficulty in difficulties %}
+                            <option value="{{difficulty.difficulty_name}}">{{difficulty.difficulty_name}}</option>
+                            {% endfor %}
                         </select>
                         <label><i class="fas fa-align-justify"></i>Recipe Difficulty</label>
                     </div>
@@ -86,10 +86,10 @@
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <select multiple id="allergens" name="allergen_name" required>
-                          <option value="" disabled selected>Choose Allergens</option>
-                          {% for allergen in allergens %}
-                          <option id="option-color" value="{{allergen.allergen_name}}">{{allergen.allergen_name}}</option>
-                          {% endfor %}
+                            <option value="" disabled selected>Choose Allergens</option>
+                            {% for allergen in allergens %}
+                            <option id="option-color" value="{{allergen.allergen_name}}">{{allergen.allergen_name}}</option>
+                            {% endfor %}
                         </select>
                         <label><i class="fas fa-align-justify"></i>Recipe Allergens</label>
                     </div>
