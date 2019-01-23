@@ -37,7 +37,8 @@
                             {% else %}
                             <span>None</span>
                             {% endif %}
-                        {% endfor %}</span><br>
+                        {% endfor %}
+                        </span><br>
                         <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
                         <span><strong>Difficulty: </strong>{{ recipe.difficulty }}</span><br>
                         <span><strong>Preparation Time: </strong>{{ recipe.prep_time }}</span><br>
@@ -50,7 +51,8 @@
                             {% else %}
                             <span>None</span>
                             {% endif %}
-                        {% endfor %}</span><br>
+                        {% endfor %}
+                        </span><br>
                     </div>
                     <i class="fas fa-book"></i><a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
                 </div>

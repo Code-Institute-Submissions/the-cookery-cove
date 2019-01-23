@@ -43,7 +43,8 @@
                             {% else %}
                             <span>None</span>
                             {% endif %}
-                        {% endfor %}</span><br>
+                        {% endfor %}
+                        </span><br>
                     </div>
                     <i class="fas fa-book"></i><a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
                 </div>
