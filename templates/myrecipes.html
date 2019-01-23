@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Heading -->
 <div class="row">
     <div class="card col s10 offset-s1 m6 offset-m3">
         <div class="card-content center-align">
@@ -12,10 +13,10 @@
     </div>
 </div>
 
+<!-- Recipes Grid -->
 <div class="row">
     <div class="col s12">
         {% for recipe in user_recipes %}
-        
         <div class="col s12 m6 l4">
             <div class="card large">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -32,11 +33,11 @@
                         <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
                         <span><strong>Category: </strong>
                             {% for category_name in recipe.category_name %}
-                                    {% if category_name != "" %}
-                                            <span>{{ category_name }},</span> 
-                                    {% else %}
-                                            <span>None</span> 
-                                    {% endif %} 
+                                {% if category_name != "" %}
+                                <span>{{ category_name }},</span> 
+                                {% else %}
+                                <span>None</span> 
+                                {% endif %} 
                             {% endfor %}
                         </span><br>
                         <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
@@ -46,12 +47,12 @@
                         <span><strong>Serves: </strong>{{ recipe.serves }}</span><br>
                         <span><strong>Allergens: </strong>
                         {% for allergen_name in recipe.allergen_name %}
-                                    {% if allergen_name != "" %}
-                                    <span>{{ allergen_name }},</span>
-                                    {% else %}
-                                    <span>None</span>
-                                    {% endif %}
-                                {% endfor %}</span><br>
+                            {% if allergen_name != "" %}
+                            <span>{{ allergen_name }},</span>
+                            {% else %}
+                            <span>None</span>
+                            {% endif %}
+                        {% endfor %}</span><br>
                     </div>
                     <ul>
                         <li><i class="fas fa-book"></i><a href="{{url_for('get_recipe', recipe_id=recipe._id, username=session['username'])}}" class="view-btn">View Recipe</a></li>
