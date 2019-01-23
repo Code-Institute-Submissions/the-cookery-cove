@@ -32,13 +32,13 @@
                         <p>{{recipe.recipe_description}}</p>
                         <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
                         <span><strong>Category: </strong>
-                            {% for category_name in recipe.category_name %}
-                                {% if category_name != "" %}
-                                <span>{{ category_name }},</span> 
-                                {% else %}
-                                <span>None</span> 
-                                {% endif %} 
-                            {% endfor %}
+                        {% for category_name in recipe.category_name %}
+                            {% if category_name != "" %}
+                            <span>{{ category_name }},</span> 
+                            {% else %}
+                            <span>None</span> 
+                            {% endif %} 
+                        {% endfor %}
                         </span><br>
                         <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
                         <span><strong>Difficulty: </strong>{{ recipe.difficulty_name }}</span><br>
