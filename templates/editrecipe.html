@@ -60,11 +60,11 @@
 
                 <!-- Prep and Cooking Times, Main Ingredient and Difficulty -->
                 <div class="input-field col s12 m6 l6">
-                    <input id="prep_time" name="prep_time" min="0" type="text" value="{{recipe.prep_time}}">
+                    <input id="prep_time" name="prep_time" type="text" value="{{recipe.prep_time}}">
                     <label for="prep_time"><i class="far fa-hourglass"></i>Preparation Time:</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
-                    <input id="cook_time" name="cook_time" min="0" type="text" value="{{recipe.cook_time}}">
+                    <input id="cook_time" name="cook_time" type="text" value="{{recipe.cook_time}}">
                     <label for="cook_time"><i class="far fa-hourglass"></i>Cooking Time:</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
@@ -83,7 +83,7 @@
                 <!-- Allergens List and Serves-->
                 <div class="row">
                     <div class="input-field col s12 m6 l6">
-                        <input id="serves" name="serves" min="0" type="text" value="{{recipe.serves}}">
+                        <input id="serves" name="serves" type="text" value="{{recipe.serves}}">
                         <label><i class="fas fa-utensils"></i>Serves</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
@@ -103,11 +103,11 @@
                 <!-- Ingredients and Method Input -->
                 <div class="row">
                     <div class="input-field col s4">
-                        <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate" placeholder="Please separate each ingredient with a comma..." required>{{recipe.recipe_ingredients}}</textarea>
+                        <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate" required>{{recipe.recipe_ingredients}}</textarea>
                         <label for="recipe_ingredients"><i class="fas fa-list-ul"></i>Ingredients</label>
                     </div>
                     <div class="input-field col s8">
-                        <textarea id="recipe_method" name="recipe_method" class="materialize-textarea validate" placeholder="Please separate each step with a full stop..." required>{{recipe.recipe_method}}</textarea>
+                        <textarea id="recipe_method" name="recipe_method" class="materialize-textarea validate" required>{{recipe.recipe_method}}</textarea>
                         <label for="recipe_method"><i class="fas fa-list-ol"></i>Method:</label>
                     </div>
                 </div>
